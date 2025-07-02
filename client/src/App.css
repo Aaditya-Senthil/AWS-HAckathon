@@ -1,0 +1,87 @@
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* App Layout CSS - Add this to your main.css or App.css */
+
+/* Ensure full coverage of gradient */
+#root {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Light theme root */
+:root #root {
+  background-color: var(--color-bg);
+}
+
+/* Dark theme root with gradient */
+:root.theme-dark #root {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Main app container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content area adjustments for gradient theme */
+.main-content {
+  flex: 1;
+  /* padding: var(--spacing-lg); */
+  transition: all 0.3s ease;
+}
+
+/* Light theme content */
+:root .main-content {
+  background-color: transparent;
+}
+
+/* Dark theme content - semi-transparent to show gradient */
+:root.theme-dark .main-content {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+}
+
+/* Sidebar adjustments for gradient theme */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+/* Dark theme sidebar */
+:root.theme-dark .sidebar {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 50%, rgba(15, 20, 25, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card/panel components for dark theme */
+:root.theme-dark .card,
+:root.theme-dark .panel,
+:root.theme-dark [class*="__card"],
+:root.theme-dark [class*="__panel"] {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Settings page specific gradient adjustments */
+:root.theme-dark .settings {
+  background: transparent;
+}
+
+:root.theme-dark .settings__section {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}

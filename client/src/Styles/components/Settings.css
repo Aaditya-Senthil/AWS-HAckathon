@@ -1,0 +1,195 @@
+/* Settings Component Styles */
+.settings {
+  padding: var(--spacing-xl);
+  margin: 0 auto;
+  background-color: var(--color-bg);
+}
+
+.settings__header {
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.settings__title {
+  font-size: 2rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.settings__subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+.settings__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.settings__section {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.settings__section-title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.settings__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.settings__option:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.settings__option-info {
+  flex: 1;
+  margin-right: var(--spacing-lg);
+}
+
+.settings__option-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.settings__option-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Toggle Switch Styles */
+.settings__toggle-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.settings__toggle-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+  min-width: 40px;
+  text-align: right;
+}
+
+.settings__toggle {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background-color: var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.settings__toggle:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.settings__toggle--active {
+  background-color: var(--color-primary);
+}
+
+.settings__toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.settings__toggle--active .settings__toggle-slider {
+  transform: translateX(24px);
+}
+
+/* Button Styles */
+.settings__button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.settings__button--secondary {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.settings__button--secondary:hover {
+  background-color: var(--color-border);
+}
+
+.settings__button--secondary:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Select Styles */
+.settings__select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.settings__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings {
+    padding: var(--spacing-lg);
+  }
+  
+  .settings__option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .settings__option-info {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .settings__toggle-container {
+    align-self: flex-end;
+  }
+}

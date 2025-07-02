@@ -1,0 +1,7 @@
+/* Block: main-content */
+.main-content {
+  flex: 1;
+  padding: 0px;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}

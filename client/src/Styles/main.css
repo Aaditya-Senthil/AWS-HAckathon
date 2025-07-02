@@ -1,0 +1,25 @@
+/* Import base resets and core styles */
+@import './base/reset.css';
+@import './base/variables.css';
+@import './base/typography.css';
+/* Gradient theme styles */
+/* @import './gradient-theme.css'; */
+
+/* Import utilities
+@import './utilities/helpers.css';
+@import './utilities/responsive.css'; */
+
+/* Import component styles */
+@import './components/Sidebar.css';
+@import './components/Settings.css';
+@import './components/BreadCrum.css';
+@import './components/MainContent.css';
+@import './components/Extraction.css';
+@import './components/DocumentHistory.css';
+@import './components/Analytics.css';
+
+/* Import theme styles */
+/* Default light theme variables are already applied from variables.css */
+/* dark.css overrides applied dynamically via .theme-dark class */
+/* @import './themes/dark.css';
+@import './themes/light.css'; */

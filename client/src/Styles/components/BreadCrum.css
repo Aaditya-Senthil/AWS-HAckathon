@@ -1,0 +1,261 @@
+/* Breadcrumb Component Styles with Gradient Theme Support */
+.breadcrumb {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme breadcrumb */
+:root .breadcrumb {
+  background-color: var(--color-bg-alt);
+}
+
+/* Dark theme breadcrumb with gradient */
+:root.theme-dark .breadcrumb {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 20, 25, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.breadcrumb__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb__link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.breadcrumb__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.5s ease;
+}
+
+/* Light theme link hover effect */
+:root .breadcrumb__link::before {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+}
+
+/* Dark theme link hover effect */
+:root.theme-dark .breadcrumb__link::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.breadcrumb__link:hover::before {
+  left: 100%;
+}
+
+.breadcrumb__link:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Light theme link hover */
+:root .breadcrumb__link:hover {
+  background-color: var(--color-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme link hover */
+:root.theme-dark .breadcrumb__link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumb__separator {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.breadcrumb__current {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  transition: all 0.3s ease;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.breadcrumb__theme-toggle {
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 0.75rem;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme toggle colors for light mode */
+:root .breadcrumb__theme-toggle {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #1a202c;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+:root .breadcrumb__theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.25);
+  /* transform: scale(1.05) rotate(5deg); */
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);  /* Subtle text shadow */
+}
+
+/* Theme toggle colors for dark mode with gradient enhancement */
+:root.theme-dark .breadcrumb__theme-toggle {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(22, 33, 62, 0.6) 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:root.theme-dark .breadcrumb__theme-toggle:hover {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-color: rgba(96, 165, 250, 0.3);
+  /* transform: scale(1.05) rotate(-5deg);
+  box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2); */
+}
+
+/* Ripple effect for theme toggle */
+.breadcrumb__theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.2;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.breadcrumb__theme-toggle:active::before {
+  width: 100px;
+  height: 100px;
+}
+
+.breadcrumb__theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.breadcrumb__title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Light theme title */
+:root .breadcrumb__title {
+  background: linear-gradient(135deg, var(--color-text-primary), var(--color-primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark theme title with enhanced gradient */
+:root.theme-dark .breadcrumb__title {
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3); 
+}
+
+.breadcrumb__title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  transition: width 0.3s ease;
+}
+
+.breadcrumb:hover .breadcrumb__title::after {
+  width: 60px;
+}
+
+/* Enhanced animations for theme transitions */
+:root {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.theme-dark {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .breadcrumb__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .breadcrumb__theme-toggle {
+    align-self: flex-end;
+    margin-top: -2rem;
+  }
+  
+  .breadcrumb__title {
+    font-size: 1.5rem;
+  }
+  
+  .breadcrumb__nav {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .breadcrumb__theme-toggle {
+    margin-top: 0;
+    align-self: center;
+  }
+}

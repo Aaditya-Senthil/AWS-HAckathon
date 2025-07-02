@@ -1,0 +1,339 @@
+/* Extraction Component (BEM) */
+
+/* Root block */
+.extraction {
+  flex: 1;
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* Tabs */
+.extraction__tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  margin-bottom: var(--spacing-md);
+}
+
+.extraction__tab {
+  background: none;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.extraction__tab:hover {
+  color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.extraction__tab--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Content layout */
+.extraction__content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Panels */
+.extraction__panel--left,
+.extraction__panel--right {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+}
+
+.extraction__panel--left {
+  border-right: 1px solid var(--color-border);
+}
+
+/* Agent config (inner block) */
+.extraction__agent-config {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Fields */
+.extraction__fields {
+  margin-bottom: var(--spacing-md);
+}
+
+.extraction__field {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-sidebar-item-hover);
+}
+
+.extraction__field-name {
+  flex: 1;
+  font-size: var(--font-size-sm);
+}
+
+.extraction__field-type {
+  width: 100px;
+}
+
+.extraction__remove-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--border-radius-sm);
+  background-color: #fee2e2;
+  color: #ef4444;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: var(--spacing-sm);
+}
+
+/* New field inputs */
+.extraction__new-field {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.extraction__new-field input,
+.extraction__new-field select {
+  padding: var(--spacing-sm);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.extraction__new-field input:focus,
+.extraction__new-field select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.extraction__add-field-btn {
+  background: var(--color-primary);
+  color: var(--color-bg-alt);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  transition: background 0.2s ease;
+}
+
+.extraction__add-field-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Status section */
+.extraction__status {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  background-color: var(--color-sidebar-item-hover);
+  border-radius: var(--border-radius-sm);
+}
+
+.extraction__loading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.extraction__spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--color-bg-alt);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Action buttons */
+.extraction__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+.extraction__action-btn,
+.extraction__status-btn,
+.extraction__reset-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.extraction__action-btn {
+  background: var(--color-primary);
+  color: var(--color-bg-alt);
+}
+
+.extraction__action-btn:disabled {
+  background: var(--color-border);
+  cursor: not-allowed;
+}
+
+.extraction__action-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.extraction__status-btn {
+  background: var(--color-text-secondary);
+  color: var(--color-bg-alt);
+}
+
+.extraction__reset-btn {
+  background: var(--color-bg-alt);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+/* Results */
+.extraction__results {
+  margin-top: var(--spacing-xl);
+  border-top: 2px solid var(--color-border);
+  padding-top: var(--spacing-lg);
+}
+
+.extraction__results-container {
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.extraction__result-item {
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background: var(--color-bg);
+}
+
+.extraction__question {
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.extraction__answer {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Spinner keyframes */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .extraction__content {
+    flex-direction: column;
+  }
+
+  .extraction__panel--left,
+  .extraction__panel--right {
+    width: 100%;
+  }
+
+  .extraction__actions {
+    flex-direction: column;
+  }
+
+  .extraction__actions button {
+    width: 100%;
+  }
+}
+
+/* ==================================== */
+/* DARK THEME SUPPORT */
+/* Ensure your <html> or <body> tag gets class="theme-dark" */
+
+.theme-dark .extraction {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.theme-dark .extraction__tabs {
+  background-color: var(--color-sidebar-bg);
+  border-bottom-color: var(--color-sidebar-border);
+}
+
+.theme-dark .extraction__tab {
+  color: var(--color-sidebar-text);
+}
+
+.theme-dark .extraction__tab--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.theme-dark .extraction__panel--left {
+  border-right-color: var(--color-sidebar-border);
+}
+
+.theme-dark .extraction__agent-config {
+  background-color: var(--color-sidebar-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-dark .extraction__field {
+  border-bottom-color: var(--color-sidebar-item-hover);
+}
+
+.theme-dark .extraction__new-field input,
+.theme-dark .extraction__new-field select {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.theme-dark .extraction__add-field-btn {
+  background: var(--color-primary);
+  color: var(--color-bg-alt);
+}
+
+.theme-dark .extraction__status {
+  background-color: var(--color-sidebar-item-active);
+}
+
+.theme-dark .extraction__actions button {
+  color: var(--color-bg-alt);
+}
+
+.theme-dark .extraction__action-btn {
+  background: var(--color-primary);
+}
+
+.theme-dark .extraction__spinner {
+  border: 3px solid var(--color-bg-alt);
+  border-top: 3px solid var(--color-primary);
+}
+
+.theme-dark .extraction__results-container {
+  background-color: var(--color-bg-alt);
+}
+
+.theme-dark .extraction__result-item {
+  background: var(--color-bg-alt);
+  border-color: var(--color-sidebar-border);
+}
